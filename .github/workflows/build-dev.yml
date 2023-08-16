@@ -48,7 +48,7 @@ jobs:
         run: |
           allurectl watch -- mvn clean test
           export $( allurectl job-run env)
-          printenv | grep TEST_
+          printenv |  grep TEST_
           printenv | grep ALLURE_
         env:
           TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
