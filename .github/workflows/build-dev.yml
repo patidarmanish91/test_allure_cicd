@@ -44,7 +44,7 @@ jobs:
           allure-project-id: ${{ secrets.ALLURE_PROJECT_ID }}
       - name: Prepare TestPlan
         run: allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
-      - name: Build with Gradle
+      - name: Build with Maven
         run: |
           allurectl watch -- mvn clean test
           export $( allurectl job-run env)
