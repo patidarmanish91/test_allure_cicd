@@ -46,7 +46,7 @@ jobs:
         run: allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
       - name: Build with Gradle
         run: |
-          allurectl watch -- ./mvnw clean test
+          allurectl watch -- mvn clean test
           export $( allurectl job-run env)
           printenv | grep TEST_
           printenv | grep ALLURE_
