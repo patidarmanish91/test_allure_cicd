@@ -18,6 +18,10 @@ on:
       ALLURE_USERNAME:
         description: "ALLURE_USERNAME service parameter. Leave blank"
         required: false
+      test-class-name:
+        description: 'Name of the test class to execute'
+        required: false
+
 
 env:
   ALLURE_ENDPOINT: https://testapiautomation.testops.cloud
