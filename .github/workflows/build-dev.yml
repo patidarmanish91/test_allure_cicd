@@ -18,6 +18,10 @@ on:
       ALLURE_USERNAME:
         description: "ALLURE_USERNAME service parameter. Leave blank"
         required: false
+      test-class-name:
+        description: 'Name of the test class to execute'
+        required: false
+
 
 env:
   ALLURE_ENDPOINT: https://testapiautomation.testops.cloud
@@ -46,7 +50,12 @@ jobs:
         run: allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
       - name: Build with Maven
         run: |
-          allurectl watch -- mvn clean test
+          # Use the provided test class name input, or a default value if not provided
+          test_class_name=${{ github.event.inputs.test-class-name }}
+          if [ -z "$test_class_name" ]; then
+            test_class_name="com.manish.api.automation.TestSuiteExecution"
+          fi
+          allurectl watch -- mvn clean test -Dtest=$test_class_name
           export $( allurectl job-run env)
           printenv |  grep TEST_
           printenv | grep ALLURE_
