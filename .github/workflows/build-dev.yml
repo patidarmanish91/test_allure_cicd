@@ -53,9 +53,10 @@ jobs:
           # Use the provided test class name input, or a default value if not provided
           test_class_name=${{ github.event.inputs.test-class-name }}
           if [ -z "$test_class_name" ]; then
-            test_class_name="com.manish.api.automation.TestSuiteExecution"
+            allurectl watch -- mvn clean test
+          elif [ -n "$test_class_name" ]; then
+            allurectl watch -- mvn clean test -Dtest=$test_class_name
           fi
-          allurectl watch -- mvn clean test -Dtest=$test_class_name
           export $( allurectl job-run env)
           printenv |  grep TEST_
           printenv | grep ALLURE_
