@@ -55,7 +55,7 @@ jobs:
           if [ -z "$test_class_name" ]; then
             allurectl watch -- mvn clean test
           elif [ -n "$test_class_name" ]; then
-            allurectl watch -- mvn clean test -Dtest=$test_class_name
+            allurectl watch -- mvn clean test -Dtest='$test_class_name'
           fi
           export $( allurectl job-run env)
           printenv |  grep TEST_
