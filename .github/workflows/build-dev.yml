@@ -1,4 +1,4 @@
-name: upload test results to testops.cloud+ ${{ secrets.ALLURE_TOKEN }}
+name: upload test results to testops.cloud a ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
 
 on:
   push:
