@@ -1,4 +1,4 @@
-name: upload test results to testops.cloud
+name: upload test results to testops.cloud+ ${{ secrets.ALLURE_TOKEN }}
 
 on:
   push:
