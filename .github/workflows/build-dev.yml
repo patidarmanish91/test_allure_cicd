@@ -16,7 +16,7 @@ on:
         description: "ALLURE_JOB_RUN_ID service parameter. Leave blank."
         required: false
       ALLURE_USERNAME:
-        description: "ALLURE_USERNAME service parameter. Leave blank"
+        description: "ALLURE_USERNAME service parameter. Leave blan"
         required: false
       test-class-name:
         description: 'Name of the test class to execute'
