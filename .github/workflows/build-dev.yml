@@ -68,7 +68,7 @@ jobs:
         env:
           TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
           TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
-          ALLURE_LAUNCH_NAME: $REPO_COMMIT_ID
+          ALLURE_LAUNCH_NAME: REPO_COMMIT_ID
       - name: Get ALLURE_ environments just to check
         run: |
           printenv | grep ALLURE_
