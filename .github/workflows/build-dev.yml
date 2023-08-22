@@ -21,6 +21,9 @@ on:
       test-class-name:
         description: 'Name of the test class to execute'
         required: false
+      REPO_COMMIT_ID:
+        description: 'Commit id for particular repo'
+        required: false
 
 
 env:
@@ -54,8 +57,10 @@ jobs:
           test_class_name=${{ github.event.inputs.test-class-name }}
           if [ -z "$test_class_name" ]; then
             allurectl watch -- mvn clean test
+            ALLURE_LAUNCH_NAME = $REPO_COMMIT_ID
           elif [ -n "$test_class_name" ]; then
             allurectl watch -- mvn clean test -Dtest="$test_class_name"
+            ALLURE_LAUNCH_NAME = ${{ github.sha }}
           fi
           export $( allurectl job-run env)
           printenv |  grep TEST_
@@ -63,7 +68,7 @@ jobs:
         env:
           TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
           TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
-          ALLURE_LAUNCH_NAME: ${{ github.sha }}
+          ALLURE_LAUNCH_NAME: $ALLURE_LAUNCH_NAME
       - name: Get ALLURE_ environments just to check
         run: |
           printenv | grep ALLURE_
