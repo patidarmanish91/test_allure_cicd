@@ -16,7 +16,7 @@ public class MathSuiteExecutionTest extends TestUtil {
     @Feature("Test CICD")
     @Severity(SeverityLevel.MINOR)
     public void addition() {
-        System.out.println("addition executed");
+        System.out.println("addition executed!!");
 
     }
 
