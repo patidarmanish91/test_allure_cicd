@@ -69,3 +69,5 @@ jobs:
       - name: Get GITHUB_ environments just to check
         run: |
           printenv | grep GITHUB_
+      - name: Display GITHUB_SHA
+        run: echo "The commit SHA is ${{ github.sha }}"
