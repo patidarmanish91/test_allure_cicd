@@ -86,5 +86,5 @@ jobs:
             password: ${{ secrets.SMTP_PASSWORD }}
             from: mpatidar@systango.com
             subject: Allure Test Results
-            to: mpatidar@systango.com
-            body: Test results are available at https://testapiautomation.testops.cloud/project/1/launches
+            to: manish_patidar@naxgrp.com,sureshkumar_gopal@naxgrp.com,labham_jain@naxgrp.com
+            body: ${{ env.EMAIL_TEMPLATE }}
