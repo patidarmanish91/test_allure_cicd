@@ -77,3 +77,14 @@ jobs:
           printenv | grep GITHUB_
       - name: Display GITHUB_SHA
         run: echo "The commit SHA is ${{ github.sha }}"
+      - name: Send Email Notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+            server_address: smtp.gmail.com
+            server_port: 587
+            username: ${{ secrets.SMTP_USERNAME }}
+            password: ${{ secrets.SMTP_PASSWORD }}
+            from: mpatidar@systango.com
+            subject: Allure Test Results
+            to: mpatidar@systango.com
+            body: Test results are available at https://testapiautomation.testops.cloud/project/1/launches
