@@ -33,6 +33,7 @@ env:
   ALLURE_TESTPLAN_PATH: "./testplan.json"
   ALLURE_RESULTS: "target/allure-results"
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
+  EMAIL_TEMPLATE: ${{ vars.EMAIL_TEMPLATE }}
 
 jobs:
   all-tests:
@@ -85,6 +86,6 @@ jobs:
             username: ${{ secrets.SMTP_USERNAME }}
             password: ${{ secrets.SMTP_PASSWORD }}
             from: mpatidar@systango.com
-            subject: Allure Test Results
+            subject: Review Automation Test Results
             to: manish_patidar@naxgrp.com,sureshkumar_gopal@naxgrp.com,labham_jain@naxgrp.com
             body: ${{ env.EMAIL_TEMPLATE }}
