@@ -87,5 +87,5 @@ jobs:
             password: ${{ secrets.SMTP_PASSWORD }}
             from: mpatidar@systango.com
             subject: Review Automation Test Results
-            to: manish_patidar@naxgrp.com,sureshkumar_gopal@naxgrp.com,labham_jain@naxgrp.com
+            to: manish_patidar@naxgrp.com,sureshkumar_gopal@naxgrp.com,labham_jain@naxgrp.com,dipti_tiwari@naxgrp.com
             body: ${{ env.EMAIL_TEMPLATE }}
